@@ -37,22 +37,20 @@ class EmployeeList extends connect(LitElement) {
   set currentPage(value) {
     if (this._currentPage !== value) {
       this._currentPage = value;
-      console.log('Setting currentPage:', value);
+
       this.requestUpdate('currentPage', value);
     }
   }
 
   update(changedProperties) {
     super.update(changedProperties);
-    console.log('EmployeeList updated, currentPage:', this.currentPage, 'employees:', this.employees?.length);
   }
 
   get filteredEmployees() {
     if (!this.employees) {
-      console.log('Employees empty');
+
       return [];
     }
-    console.log('Filtering employees, searchTerm:', this.searchTerm, 'total:', this.employees.length);
     return this.employees.filter(
       (emp) =>
         emp.firstName.toLowerCase().includes(this.searchTerm?.toLowerCase() || '') ||
@@ -64,18 +62,15 @@ class EmployeeList extends connect(LitElement) {
     const start = (this.currentPage - 1) * this.pageSize;
     const end = start + this.pageSize;
     const batch = this.filteredEmployees.slice(start, end);
-    console.log('Paginating, page:', this.currentPage, 'start:', start, 'end:', end, 'batch:', batch.length);
     return batch;
   }
 
   get totalPages() {
     const total = Math.ceil(this.filteredEmployees.length / this.pageSize);
-    console.log('Total pages:', total);
     return total;
   }
 
   render() {
-    console.log('Rendering EmployeeList, paginatedEmployees:', this.paginatedEmployees.length);
     return html`
       <div class="container">
         <h1>${getText('employeeList.title')}</h1>
