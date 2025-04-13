@@ -118,6 +118,8 @@ ing-hub-case/
    npm start
    ```
    Launches the application at http://localhost:8000.
+2. Direct Access.
+   Launches the application at http://77.245.150.136:8000
 
 ## Testing
 - Run unit tests:
