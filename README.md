@@ -70,6 +70,7 @@ As a senior developer, I prioritized code quality, user-centric design, and robu
 - **ES Modules**: Modern JavaScript for modularity.
 
 ## Project Structure
+```
 ing-hub-case/
 ├── src/
 │   ├── components/
@@ -94,6 +95,7 @@ ing-hub-case/
 ├── package.json
 ├── web-test-runner.config.js
 ├── README.md
+```
 - **components/**: Modular web components for UI.
 - **lib/**: Mock data for development.
 - **localization/**: Language support logic.
@@ -108,11 +110,22 @@ ing-hub-case/
    cd ing-hub-case
    npm install
    npx playwright install
+   ```
+
 ## Usage
 1. Start the development server:
    ```bash
    npm start
+   ```
    Launches the application at http://localhost:8000.
+
+## Testing
+- Run unit tests:
+   ```bash
+   npm test
+   ```
+- Tests use **Web Test Runner** and **Playwright**.
+
 ## Localization
 - Supports **English** (`lang="en"`) and **Turkish** (`lang="tr"`).
 - Dynamically reads the HTML `lang` attribute to translate UI elements (labels, buttons, messages).
